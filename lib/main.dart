@@ -79,7 +79,7 @@ class MyApp extends StatelessWidget {
             bodyMedium: TextStyle(fontSize: 14, color: Colors.grey),
           ),
         ),
-
+        initialRoute: '/splash',
         routes: {
           '/splash': (context) => const SplashScreen(),
           '/': (context) => const LoginScreen(),
