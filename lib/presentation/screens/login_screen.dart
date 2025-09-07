@@ -73,7 +73,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       fontSize: 15.0,
                     ),
                     fillColor: HexColor(HexColors.offWhite),
-                    prefixIcon: Icon(Icons.password_outlined),
+                    prefixIcon: Icon(Icons.lock),
                     hintText: 'Password',
                     suffixIcon: IconButton(
                       onPressed: () {
@@ -100,7 +100,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: BlocConsumer<AuthBloc, AuthState>(
                     listener: (context, state) {
                       if (state is AuthLoading) {
-                        AuthLoading();
+                        Center(child: CircularProgressIndicator());
                       } else if (state is AuthAuthenticated) {
                         Navigator.pushReplacementNamed(context, "/home");
                       } else if (state is AuthError) {

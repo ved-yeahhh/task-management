@@ -9,6 +9,7 @@ import 'package:task_mgmt/data/repository/task_repository.dart';
 import 'package:task_mgmt/presentation/screens/add_task_page.dart';
 import 'package:task_mgmt/presentation/screens/home_screen.dart';
 import 'package:task_mgmt/presentation/screens/login_screen.dart';
+import 'package:task_mgmt/presentation/screens/profile.dart';
 import 'package:task_mgmt/presentation/screens/signup_page.dart';
 import 'package:task_mgmt/presentation/screens/splash_screen.dart';
 import 'firebase_options.dart';
@@ -72,7 +73,7 @@ class MyApp extends StatelessWidget {
             titleMedium: TextStyle(
               fontSize: 18.0,
               fontWeight: FontWeight.w500,
-              color: Colors.black,
+              color: Colors.white,
             ),
             displayLarge: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
             bodyLarge: TextStyle(fontSize: 16),
@@ -86,6 +87,8 @@ class MyApp extends StatelessWidget {
           "/signup": (context) => SignupPage(),
           "/home": (context) => HomeScreen(),
           "/addTask": (context) => AddTaskPage(),
+          "/profile": (context) => ProfileScreen(),
+          "/login": (context) => LoginScreen(),
         },
       ),
     );

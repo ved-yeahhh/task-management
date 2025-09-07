@@ -18,11 +18,11 @@ class AuthSignInRequested extends AuthEvent {
 class AuthSignUpRequested extends AuthEvent {
   final String email;
   final String password;
-
-  AuthSignUpRequested(this.email, this.password);
+  final String username;
+  AuthSignUpRequested(this.username, this.email, this.password);
 
   @override
-  List<Object?> get props => [email, password];
+  List<Object?> get props => [email, password, username];
 }
 
 class AuthSignOutRequested extends AuthEvent {}
