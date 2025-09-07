@@ -1,30 +1,46 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:task_mgmt/main.dart';
+import 'package:task_mgmt/main.dart'; // adjust to your entry point
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
+  testWidgets('App loads Task Management home screen', (WidgetTester tester) async {
     await tester.pumpWidget(const MyApp());
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    // Check if title or main screen text exists
+    expect(find.text('Task Management'), findsOneWidget);
+  });
 
-    // Tap the '+' icon and trigger a frame.
+  testWidgets('Add a new task and verify it appears', (WidgetTester tester) async {
+    await tester.pumpWidget(const MyApp());
+
+    // Tap on add task button (change the icon if you used another)
     await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+    await tester.pumpAndSettle();
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    // Enter task name
+    await tester.enterText(find.byType(TextField), 'Buy groceries');
+    await tester.tap(find.text('Save')); // change if button label is different
+    await tester.pumpAndSettle();
+
+    // Verify new task appears
+    expect(find.text('Buy groceries'), findsOneWidget);
+  });
+
+  testWidgets('Mark task as complete', (WidgetTester tester) async {
+    await tester.pumpWidget(const MyApp());
+
+    // Add a task
+    await tester.tap(find.byIcon(Icons.add));
+    await tester.pumpAndSettle();
+    await tester.enterText(find.byType(TextField), 'Complete homework');
+    await tester.tap(find.text('Save'));
+    await tester.pumpAndSettle();
+
+    // Tap checkbox (assuming you use CheckboxListTile or similar)
+    await tester.tap(find.byType(Checkbox));
+    await tester.pumpAndSettle();
+
+    // Verify UI change (you might change style or show completed state)
+    expect(find.text('Complete homework'), findsOneWidget);
   });
 }
