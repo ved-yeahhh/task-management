@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:task_mgmt/bloc/auth/auth_state.dart';
 import 'package:task_mgmt/bloc/task/task_bloc.dart';
 import 'package:task_mgmt/bloc/task/task_event.dart';
 import 'package:task_mgmt/bloc/task/task_state.dart';
