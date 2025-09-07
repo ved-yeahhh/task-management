@@ -49,13 +49,13 @@ class MyApp extends StatelessWidget {
             iconTheme: const IconThemeData(color: Colors.white),
           ),
 
-          cardTheme: CardThemeData(
-            color: HexColor(HexColors.neutrals10),
-            margin: EdgeInsets.all(8),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(12)),
-            ),
-          ),
+          // cardTheme: CardThemeData(
+          //   color: HexColor(HexColors.neutrals10),
+          //   margin: EdgeInsets.all(8),
+          //   shape: RoundedRectangleBorder(
+          //     borderRadius: BorderRadius.all(Radius.circular(12)),
+          //   ),
+          // ),
 
           elevatedButtonTheme: ElevatedButtonThemeData(
             style: ElevatedButton.styleFrom(
